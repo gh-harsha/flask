@@ -29,7 +29,10 @@ app = Flask(__name__)
 CORS(app)
 # My SQL Instance configurations
 # Change the HOST IP and Password to match your instance configurations
-
+@app.route("/index.html") #Default - Show Data
+def index(): # Name of the method
+    return render_template('index.html')
+    
 @app.route("/add", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':
