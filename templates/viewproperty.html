@@ -8,7 +8,7 @@
 let doIt=()=>{
   let tab=document.getElementById("tab1");
   let rows=tab1.getElementsByTagName('tr');
-  fetch('https://harshagh.uksouth.cloudapp.azure.com:8080/')
+  fetch('https://harshagh.uksouth.cloudapp.azure.com:8080/getpropertydetails')
     .then(response => response.json())
     .then(data=>data.Results.forEach(  //.slice(0,3)
       x=>{
@@ -39,6 +39,20 @@ let doIt=()=>{
 <button onClick="doIt()">Press me</button>
 This is where the results turn up: <br/>
 <table id='tab1' bgcolor='blue'>
-<tr><td>ID</td><td>Name</td><td>Email</td></tr>
+<tr><td>ID</td>
+    <td>NaPropertyTypeme</td>
+    <td>Bedrooms</td>
+    <td>Bathrooms</td>
+    <td>FloorNumber</td>
+    <td>OwnershipType</td>
+    <td>Furnished</td>
+    <td>LuxuryAmenities</td>
+    <td>PossessionStatus</td>
+    <td>TransactionType</td>
+    <td>UserType</td>
+    <td>CompanyName</td>
+    <td>OwnerName</td>
+    <td>Rating</td>
+</tr>
 </table></body>
 </html>
