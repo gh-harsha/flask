@@ -349,7 +349,7 @@ cursor.execute("SELECT * FROM realestate_data")
 rows = cursor.fetchall()
 rows
 
-!pip install Flask
+#!pip install Flask
 
 from flask import Flask
 from flask import render_template
