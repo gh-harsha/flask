@@ -35,7 +35,7 @@ let doIt=()=>{
 }
 </script>
 </head>
-<body>
+<!-- <body>
 <button onClick="doIt()">Press me</button>
 This is where the results turn up: <br/>
 <table id='tab1' bgcolor='blue'>
@@ -54,5 +54,34 @@ This is where the results turn up: <br/>
     <td>OwnerName</td>
     <td>Rating</td>
 </tr>
-</table></body>
+</table></body> -->
+
+<body>
+    <button onClick="doIt()">Press me</button>
+    <p>This is where the results turn up:</p>
+    <br />
+    <table id="tab1" style="background-color: blue; color: white; border: 1px solid black; width: 100%; border-collapse: collapse; text-align: left;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; padding: 8px;">ID</th>
+          <th style="border: 1px solid black; padding: 8px;">Property Type</th>
+          <th style="border: 1px solid black; padding: 8px;">Bedrooms</th>
+          <th style="border: 1px solid black; padding: 8px;">Bathrooms</th>
+          <th style="border: 1px solid black; padding: 8px;">Floor Number</th>
+          <th style="border: 1px solid black; padding: 8px;">Ownership Type</th>
+          <th style="border: 1px solid black; padding: 8px;">Furnished</th>
+          <th style="border: 1px solid black; padding: 8px;">Luxury Amenities</th>
+          <th style="border: 1px solid black; padding: 8px;">Possession Status</th>
+          <th style="border: 1px solid black; padding: 8px;">Transaction Type</th>
+          <th style="border: 1px solid black; padding: 8px;">User Type</th>
+          <th style="border: 1px solid black; padding: 8px;">Company Name</th>
+          <th style="border: 1px solid black; padding: 8px;">Owner Name</th>
+          <th style="border: 1px solid black; padding: 8px;">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data rows will be dynamically added here -->
+      </tbody>
+    </table>
+  </body>
 </html>
