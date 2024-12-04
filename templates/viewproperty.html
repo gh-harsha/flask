@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Property Details Form</title>
+<script>
+let doIt=()=>{
+  let tab=document.getElementById("tab1");
+  let rows=tab1.getElementsByTagName('tr');
+  fetch('https://harshagh.uksouth.cloudapp.azure.com:8080/')
+    .then(response => response.json())
+    .then(data=>data.Results.forEach(  //.slice(0,3)
+      x=>{
+        let newRow=rows[0].cloneNode(true);
+        let divs=newRow.getElementsByTagName('td');
+        divs[0].innerHTML=x['ID'];
+        divs[1].innerHTML=x['NaPropertyTypeme'];
+        divs[2].innerHTML=x['Bedrooms'];
+        divs[3].innerHTML=x['Bathrooms'];
+        divs[4].innerHTML=x['FloorNumber'];
+        divs[5].innerHTML=x['OwnershipType'];
+        divs[6].innerHTML=x['Furnished'];
+        divs[7].innerHTML=x['LuxuryAmenities'];
+        divs[8].innerHTML=x['PossessionStatus'];
+        divs[9].innerHTML=x['TransactionType'];
+        divs[10].innerHTML=x['UserType'];
+        divs[12].innerHTML=x['CompanyName'];
+        divs[13].innerHTML=x['OwnerName'];
+        divs[14].innerHTML=x['Rating'];
+        tab1.appendChild(newRow);
+      }
+    )
+  );
+}
+</script>
+</head>
+<body>
+<button onClick="doIt()">Press me</button>
+This is where the results turn up: <br/>
+<table id='tab1' bgcolor='blue'>
+<tr><td>ID</td><td>Name</td><td>Email</td></tr>
+</table></body>
+</html>
