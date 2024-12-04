@@ -360,6 +360,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/viewproperty.html") #Default - Show Data
+def viewproperty(): # Name of the method
+    return render_template('viewproperty.html')
+
+
 @app.route("/getpropertydetails", methods=['GET']) #Get property details
 def get():
   cursor.execute("SELECT * FROM realestate_data")
