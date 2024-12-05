@@ -365,7 +365,7 @@ def viewproperty(): # Name of the method
     return render_template('viewproperty.html')
 
 @app.route("/addproperty", methods=['GET', 'POST']) #Add Student
-def add():
+def addproperty():
   if request.method == 'POST':
     Id = request.form['id']
     PropertyType = request.form['PropertyType']
@@ -383,9 +383,6 @@ def add():
     CompanyName = request.form['CompanyName']
     OwnerName = request.form['OwnerName']
     Rating = request.form['Rating']
-    
-
-
     print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
     cur = mysql.cursor() #create a connection to the SQL instance
     s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
