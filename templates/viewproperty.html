@@ -6,6 +6,8 @@
 <title>Property Details Form</title>
 <script>
 let doIt=()=>{
+  let button = document.querySelector("button");
+  button.disabled = true; // Disable the button after the first click
   let tab=document.getElementById("tab1");
   let rows=tab1.getElementsByTagName('tr');
   fetch('https://harshagh.uksouth.cloudapp.azure.com:8080/getpropertydetails')
@@ -19,15 +21,17 @@ let doIt=()=>{
         divs[2].innerHTML=x['Bedrooms'];
         divs[3].innerHTML=x['Bathrooms'];
         divs[4].innerHTML=x['FloorNumber'];
-        divs[5].innerHTML=x['OwnershipType'];
-        divs[6].innerHTML=x['Furnished'];
-        divs[7].innerHTML=x['LuxuryAmenities'];
-        divs[8].innerHTML=x['PossessionStatus'];
-        divs[9].innerHTML=x['TransactionType'];
-        divs[10].innerHTML=x['UserType'];
-        divs[11].innerHTML=x['CompanyName'];
-        divs[12].innerHTML=x['OwnerName'];
-        divs[13].innerHTML=x['Rating'];
+        divs[5].innerHTML=x['TotalFloors'];
+        divs[6].innerHTML=x['Price'];
+        divs[7].innerHTML=x['OwnershipType'];
+        divs[8].innerHTML=x['Furnished'];
+        divs[9].innerHTML=x['LuxuryAmenities'];
+        divs[10].innerHTML=x['PossessionStatus'];
+        divs[11].innerHTML=x['TransactionType'];
+        divs[13].innerHTML=x['UserType'];
+        divs[13].innerHTML=x['CompanyName'];
+        divs[14].innerHTML=x['OwnerName'];
+        divs[15].innerHTML=x['Rating'];
         tab1.appendChild(newRow);
       }
     )
@@ -44,6 +48,8 @@ This is where the results turn up: <br/>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Bedrooms</td>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Bathrooms</td>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">FloorNumber</td>
+    <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">TotalFloors</td>
+    <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Price</td>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">OwnershipType</td>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Furnished</td>
     <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">LuxuryAmenities</td>
