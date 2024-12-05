@@ -364,7 +364,7 @@ CORS(app)
 def viewproperty(): # Name of the method
     return render_template('viewproperty.html')
 
-@app.route("/add", methods=['GET', 'POST']) #Add Student
+@app.route("/addproperty", methods=['GET', 'POST']) #Add Student
 def add():
   if request.method == 'POST':
     Id = request.form['id']
