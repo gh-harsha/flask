@@ -383,7 +383,7 @@ def addproperty():
     CompanyName = request.form['CompanyName']
     OwnerName = request.form['OwnerName']
     Rating = request.form['Rating']
-    print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
+    print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
     cur = mysql.cursor() #create a connection to the SQL instance
     #s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
     s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
@@ -391,7 +391,7 @@ def addproperty():
     cur.execute(s)
     mysql.commit()
   else:
-    return render_template('addproperty)
+    return render_template('addproperty.html)
 
   return '{"Result":"Success"}'
 
