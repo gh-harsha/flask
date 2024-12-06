@@ -391,7 +391,7 @@ def addproperty():
     cur.execute(s)
     mysql.commit()
   else:
-    return render_template('addproperty.html)
+    return render_template('addproperty.html')
 
   return '{"Result":"Success"}'
 
