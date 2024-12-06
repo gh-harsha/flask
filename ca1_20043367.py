@@ -367,26 +367,26 @@ def viewproperty(): # Name of the method
 @app.route("/addproperty", methods=['GET', 'POST']) #
 def addproperty():
   if request.method == 'POST':
-    #Id = request.form['id']
+    Id = request.form['id']
     PropertyType = request.form['PropertyType']
-    # Bedrooms = request.form['Bedrooms']
-    # Bathrooms = request.form['Bathrooms']
-    # FloorNumber = request.form['FloorNumber']
-    # TotalFloors = request.form['TotalFloors']
-    # Price = request.form['Price']
-    # OwnershipType = request.form['OwnershipType']
-    # Furnished = request.form['Furnished']
-    # LuxuryAmenities = request.form['LuxuryAmenities']
-    # PossessionStatus = request.form['PossessionStatus']
-    # TransactionType = request.form['TransactionType']
-    # UserType = request.form['UserType']
-    # CompanyName = request.form['CompanyName']
-    # OwnerName = request.form['OwnerName']
-    # Rating = request.form['Rating']
-    #print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
+    Bedrooms = request.form['Bedrooms']
+    Bathrooms = request.form['Bathrooms']
+    FloorNumber = request.form['FloorNumber']
+    TotalFloors = request.form['TotalFloors']
+    Price = request.form['Price']
+    OwnershipType = request.form['OwnershipType']
+    Furnished = request.form['Furnished']
+    LuxuryAmenities = request.form['LuxuryAmenities']
+    PossessionStatus = request.form['PossessionStatus']
+    TransactionType = request.form['TransactionType']
+    UserType = request.form['UserType']
+    CompanyName = request.form['CompanyName']
+    OwnerName = request.form['OwnerName']
+    Rating = request.form['Rating']
+    print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
     cur = mysql.cursor() #create a connection to the SQL instance
-    s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
-    #s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
+    #s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
+    s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,Rating)
     app.logger.info(s)
     cur.execute(s)
     mysql.commit()
