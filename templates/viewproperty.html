@@ -33,6 +33,7 @@ let doIt=()=>{
         divs[14].innerHTML=x['OwnerName'];
         divs[15].innerHTML=x['Rating'];
         tab1.appendChild(newRow);
+        tab1.insertBefore(newRow, rows[1]);
       }
     )
   );
