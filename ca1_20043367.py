@@ -393,8 +393,9 @@ def addproperty():
    
   else:
     return render_template('addproperty.html')
-
-  return '{"Result":"Success"}'
+    print("Result":"Success")
+  return redirect(url_for('/viewproperty.html')
+  # return '{"Result":"Success"}'
 
 
 # from flask import Flask, request, render_template
