@@ -435,7 +435,7 @@ def addproperty():
         mysql.commit()
 
         # Redirect to view properties
-        return redirect(url_for('viewproperty'))
+        return redirect(url_for('/viewproperty.html'))
 
     return render_template('addproperty.html')
 
@@ -472,6 +472,7 @@ def get():
   return ret #Return the data in a string format
 
 if __name__ == "__main__":
+  app.run(debug=True)
   #app.run(host='0.0.0.0',port='8080') #Run the flask app at port 8080
   #app.run(host='0.0.0.0',port='5000', debug=True) #Run the flask app at port 8080
   app.run(host='0.0.0.0',port='8080', ssl_context=('cert.pem', 'privkey.pem')) #Run the flask app at port 8080
