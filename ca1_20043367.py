@@ -364,80 +364,84 @@ CORS(app)
 def viewproperty(): # Name of the method
     return render_template('viewproperty.html')
 
-# @app.route("/addproperty", methods=['GET', 'POST']) #
-# def addproperty():
-#   if request.method == 'POST':
-#     Id = request.form['id']
-#     PropertyType = request.form['PropertyType']
-#     Bedrooms = request.form['Bedrooms']
-#     Bathrooms = request.form['Bathrooms']
-#     FloorNumber = request.form['FloorNumber']
-#     TotalFloors = request.form['TotalFloors']
-#     Price = request.form['Price']
-#     OwnershipType = request.form['OwnershipType']
-#     Furnished = request.form['Furnished']
-#     LuxuryAmenities = request.form['LuxuryAmenities']
-#     PossessionStatus = request.form['PossessionStatus']
-#     TransactionType = request.form['TransactionType']
-#     UserType = request.form['UserType']
-#     CompanyName = request.form['CompanyName']
-#     OwnerName = request.form['OwnerName']
-#     Rating = request.form['Rating']
-#     print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
-#     cur = mysql.cursor() #create a connection to the SQL instance
-#     #s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
-#     s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
-#     app.logger.info(s)
-#     cur.execute(s)
-#     mysql.commit()
-#   else:
-#     return render_template('addproperty.html')
-
-#   return '{"Result":"Success"}'
-
-
-
-@app.route("/addproperty", methods=['GET', 'POST'])
+@app.route("/addproperty", methods=['GET', 'POST']) #
 def addproperty():
-    if request.method == 'POST':
-        Id = request.form['id']
-        PropertyType = request.form['PropertyType']
-        Bedrooms = request.form['Bedrooms']
-        Bathrooms = request.form['Bathrooms']
-        FloorNumber = request.form['FloorNumber']
-        TotalFloors = request.form['TotalFloors']
-        Price = request.form['Price']
-        OwnershipType = request.form['OwnershipType']
-        Furnished = request.form['Furnished']
-        LuxuryAmenities = request.form['LuxuryAmenities']
-        PossessionStatus = request.form['PossessionStatus']
-        TransactionType = request.form['TransactionType']
-        UserType = request.form['UserType']
-        CompanyName = request.form['CompanyName']
-        OwnerName = request.form['OwnerName']
-        Rating = request.form['Rating']
-
-        # Insert into database
-        cur = mysql.cursor()
-        query = '''
-            INSERT INTO students(
-                id, PropertyType, Bedrooms, Bathrooms, FloorNumber, TotalFloors,
-                Price, OwnershipType, Furnished, LuxuryAmenities, PossessionStatus,
-                TransactionType, UserType, CompanyName, OwnerName, Rating
-            )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-        '''
-        cur.execute(query, (
-            Id, PropertyType, Bedrooms, Bathrooms, FloorNumber, TotalFloors,
-            Price, OwnershipType, Furnished, LuxuryAmenities, PossessionStatus,
-            TransactionType, UserType, CompanyName, OwnerName, Rating
-        ))
-        mysql.commit()
-
-        # Redirect to view properties
-        return redirect(url_for('/viewproperty.html'))
-
+  if request.method == 'POST':
+    Id = request.form['id']
+    PropertyType = request.form['PropertyType']
+    Bedrooms = request.form['Bedrooms']
+    Bathrooms = request.form['Bathrooms']
+    FloorNumber = request.form['FloorNumber']
+    TotalFloors = request.form['TotalFloors']
+    Price = request.form['Price']
+    OwnershipType = request.form['OwnershipType']
+    Furnished = request.form['Furnished']
+    LuxuryAmenities = request.form['LuxuryAmenities']
+    PossessionStatus = request.form['PossessionStatus']
+    TransactionType = request.form['TransactionType']
+    UserType = request.form['UserType']
+    CompanyName = request.form['CompanyName']
+    OwnerName = request.form['OwnerName']
+    Rating = request.form['Rating']
+    print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
+    # cursor = mysql.cursor() #create a connection to the SQL instance
+    #s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
+    s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
+    app.logger.info(s)
+    cursor.execute(s)
+    connection.commit()
+   
+  else:
     return render_template('addproperty.html')
+
+  return '{"Result":"Success"}'
+
+
+# from flask import Flask, request, render_template
+# from flask_mysqldb import MySQL
+
+
+# @app.route("/addproperty", methods=['GET', 'POST'])
+# def addproperty():
+#     if request.method == 'POST':
+#         Id = request.form['id']
+#         PropertyType = request.form['PropertyType']
+#         Bedrooms = request.form['Bedrooms']
+#         Bathrooms = request.form['Bathrooms']
+#         FloorNumber = request.form['FloorNumber']
+#         TotalFloors = request.form['TotalFloors']
+#         Price = request.form['Price']
+#         OwnershipType = request.form['OwnershipType']
+#         Furnished = request.form['Furnished']
+#         LuxuryAmenities = request.form['LuxuryAmenities']
+#         PossessionStatus = request.form['PossessionStatus']
+#         TransactionType = request.form['TransactionType']
+#         UserType = request.form['UserType']
+#         CompanyName = request.form['CompanyName']
+#         OwnerName = request.form['OwnerName']
+#         Rating = request.form['Rating']
+
+#         # Insert into database
+#         cur = mysql.cursor()
+#         query = '''
+#             INSERT INTO students(
+#                 id, PropertyType, Bedrooms, Bathrooms, FloorNumber, TotalFloors,
+#                 Price, OwnershipType, Furnished, LuxuryAmenities, PossessionStatus,
+#                 TransactionType, UserType, CompanyName, OwnerName, Rating
+#             )
+#             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+#         '''
+#         cur.execute(query, (
+#             Id, PropertyType, Bedrooms, Bathrooms, FloorNumber, TotalFloors,
+#             Price, OwnershipType, Furnished, LuxuryAmenities, PossessionStatus,
+#             TransactionType, UserType, CompanyName, OwnerName, Rating
+#         ))
+#         mysql.commit()
+
+#         # Redirect to view properties
+#         return redirect(url_for('/viewproperty.html'))
+
+#     return render_template('addproperty.html')
 
 @app.route("/getpropertydetails", methods=['GET']) #Get property details
 def get():
