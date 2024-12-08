@@ -386,7 +386,7 @@ def addproperty():
     print(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
     # cursor = mysql.cursor() #create a connection to the SQL instance
     #s='''INSERT INTO students(PropertyType) VALUES('{}');'''.format(PropertyType)
-    s='''INSERT INTO students(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
+    s='''INSERT INTO realestate_data(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating) VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}');'''.format(id,PropertyType,Bedrooms,Bathrooms,FloorNumber,TotalFloors,Price,OwnershipType,Furnished,LuxuryAmenities,PossessionStatus,TransactionType,UserType,CompanyName,OwnerName,Rating)
     app.logger.info(s)
     cursor.execute(s)
     connection.commit()
