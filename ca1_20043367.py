@@ -394,7 +394,8 @@ def addproperty():
   else:
     return render_template('addproperty.html')
     print("Result Success")
-  return redirect(url_for('/viewproperty.html')
+
+  return redirect(url_for('/viewproperty.html'))
   # return '{"Result":"Success"}'
 
 
