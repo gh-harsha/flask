@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -65,4 +65,88 @@ This is where the results turn up: <br/>
 
 
 </html>
-
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <title>Property Details Form</title>
+ <script>
+ async function doIt() {
+   const button = document.querySelector("button");
+   button.disabled = true; // Disable the button after the first click
+ 
+   const tab = document.getElementById("tab1");
+   const templateRow = tab.getElementsByTagName('tr')[0]; // Cache the template row
+ 
+   try {
+     const response = await fetch('https://harshagh.uksouth.cloudapp.azure.com:8080/getpropertydetails');
+     if (!response.ok) {
+       throw new Error(`HTTP error! status: ${response.status}`);
+     }
+ 
+     const data = await response.json();
+ 
+     // Use DocumentFragment for efficient DOM manipulation
+     const fragment = document.createDocumentFragment();
+ 
+     data.Results.forEach(item => {
+       const newRow = templateRow.cloneNode(true);
+       const cells = newRow.getElementsByTagName('td');
+ 
+       cells[0].innerHTML = item['id'];
+       cells[1].innerHTML = item['PropertyType'];
+       cells[2].innerHTML = item['Bedrooms'];
+       cells[3].innerHTML = item['Bathrooms'];
+       cells[4].innerHTML = item['FloorNumber'];
+       cells[5].innerHTML = item['TotalFloors'];
+       cells[6].innerHTML = item['Price'];
+       cells[7].innerHTML = item['OwnershipType'];
+       cells[8].innerHTML = item['Furnished'];
+       cells[9].innerHTML = item['LuxuryAmenities'];
+       cells[10].innerHTML = item['PossessionStatus'];
+       cells[11].innerHTML = item['TransactionType'];
+       cells[12].innerHTML = item['UserType'];
+       cells[13].innerHTML = item['CompanyName'];
+       cells[14].innerHTML = item['OwnerName'];
+       cells[15].innerHTML = item['Rating'];
+ 
+       fragment.appendChild(newRow);
+     });
+ 
+     // Append all rows to the table at once
+     tab.appendChild(fragment);
+   } catch (error) {
+     console.error("Error fetching data:", error);
+     alert("Failed to load property details. Please try again later.");
+   }
+ }
+ </script>
+ </head>
+ <body>
+   <button onClick="doIt()">Press me</button>
+   <p>This is where the results turn up:</p>
+   <table id="tab1" style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: Arial, sans-serif;">
+     <tr>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">id</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">PropertyType</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Bedrooms</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Bathrooms</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">FloorNumber</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">TotalFloors</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Price</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">OwnershipType</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Furnished</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">LuxuryAmenities</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">PossessionStatus</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">TransactionType</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">UserType</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">CompanyName</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">OwnerName</td>
+       <td style="padding: 10px; text-align: left; border: 1px solid #ddd;">Rating</td>
+     </tr>
+   </table>
+ </body>
+ </html>
+ 
