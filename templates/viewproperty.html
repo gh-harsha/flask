@@ -112,7 +112,7 @@ This is where the results turn up: <br/>
        cells[14].innerHTML = item['OwnerName'];
        cells[15].innerHTML = item['Rating'];
  
-       fragment.appendChild(newRow);
+       tab.insertBefore(newRow, tab.getElementsByTagName('tr')[1]);
      });
  
      // Append all rows to the table at once
