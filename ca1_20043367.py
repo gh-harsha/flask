@@ -367,7 +367,7 @@ def viewproperty(): # Name of the method
 @app.route("/addproperty", methods=['GET', 'POST']) #
 def addproperty():
   if request.method == 'POST':
-    Id = request.form['id']
+    id = request.form['id']
     PropertyType = request.form['PropertyType']
     Bedrooms = request.form['Bedrooms']
     Bathrooms = request.form['Bathrooms']
